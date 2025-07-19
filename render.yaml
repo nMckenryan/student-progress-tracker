@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: student-progress-tracker
+    env: php
+    buildCommand: "chmod +x build.sh && ./build.sh"
+    startCommand: "php artisan serve --host=0.0.0.0 --port=10000"
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        generateValue: true
+      - key: APP_URL
+        value: https://student-progress-tracker.onrender.com
+      - key: DB_CONNECTION
+        value: sqlite
+    plan: free
+    autoDeploy: true
