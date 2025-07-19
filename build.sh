@@ -4,11 +4,6 @@ set -o errexit
 
 echo "=== Starting Build Process ==="
 
-# Install system dependencies
-echo "Installing system dependencies..."
-sudo apt-get update
-sudo apt-get install -y sqlite3
-
 # Create necessary directories
 echo "Creating storage directories..."
 mkdir -p storage/app/public
@@ -30,13 +25,14 @@ touch database/database.sqlite
 
 # Copy environment file if not exists
 if [ ! -f ".env" ]; then
+    echo "Creating .env file..."
     cp .env.example .env
 fi
 
 # Update environment configuration
 echo "Configuring environment..."
 sed -i 's/DB_CONNECTION=mysql/DB_CONNECTION=sqlite/g' .env
-sed -i 's/DB_DATABASE=laravel/DB_DATABASE=\/opt\/render\/project\/database\/database.sqlite/g' .env
+sed -i 's/DB_DATABASE=laravel/DB_DATABASE=database\/database.sqlite/g' .env
 
 # Generate application key if not exists
 if ! grep -q "^APP_KEY=" .env; then
