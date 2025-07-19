@@ -3,7 +3,11 @@ services:
     name: student-progress-tracker
     env: php
     region: singapore
-    buildCommand: "chmod +x build.sh && ./build.sh"
+    buildCommand: |
+      curl -s https://getcomposer.org/installer | php
+      php composer.phar install --no-interaction --optimize-autoloader --no-dev
+      chmod +x build.sh
+      ./build.sh
     startCommand: "php artisan serve --host=0.0.0.0 --port=10000"
     envVars:
       - key: APP_ENV
@@ -18,5 +22,9 @@ services:
         value: sqlite
       - key: LOG_CHANNEL
         value: stderr
+    build:
+      os: ubuntu22
+      nodeVersion: 18.x
+      phpVersion: 8.1
     plan: free
     autoDeploy: true

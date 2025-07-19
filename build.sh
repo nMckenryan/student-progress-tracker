@@ -4,6 +4,12 @@ set -o errexit
 
 echo "=== Starting Build Process ==="
 
+# Show environment info
+echo "PHP Version:"
+php -v
+echo "Composer Version:"
+php composer.phar --version
+
 # Create necessary directories
 echo "Creating storage directories..."
 mkdir -p storage/app/public
@@ -17,7 +23,7 @@ chmod -R 775 bootstrap/cache
 
 # Install PHP dependencies
 echo "Installing PHP dependencies..."
-composer install --no-interaction --optimize-autoloader --no-dev
+php composer.phar install --no-interaction --optimize-autoloader --no-dev
 
 # Setup SQLite database
 echo "Setting up SQLite database..."
