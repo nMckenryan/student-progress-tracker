@@ -5,12 +5,55 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
+
 class StudentController extends Controller
 {
+
+
+
     public function index()
     {
+
+        $studentJson = '[
+            {
+                "name": "John Smith",
+                "course": {
+                    "name": "Certificate III In Business",
+                    "progressCompleted": 0,
+                    "units": [
+                        {
+                            "id": "BSBCRT311",
+                            "name": "Apply critical thinking skills in a team environment",
+                            "completed": false
+                        },
+                        {
+                            "id": "BSBCRT312",
+                            "name": "Support personal wellbeing in the workplace",
+                            "completed": false
+                        },
+                        {
+                            "id": "BSBSUS211",
+                            "name": "Participate in sustainable work practices",
+                            "completed": false
+                        },
+                        {
+                            "id": "BSBTWK301",
+                            "name": "Use inclusive work practices",
+                            "completed": false
+                        },
+                        {
+                            "id": "BSBWHS311",
+                            "name": "Assist with maintaining workplace safety",
+                            "completed": false
+                        }
+                    ]
+                }
+            }
+        ]';
+
+
         // load fresh data from JSON
-        $json = File::get(public_path('data/studentData.json'));
+        $json = $studentJson;
         $students = json_decode($json, true);
 
         // Get session data if it exists

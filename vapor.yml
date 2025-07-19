@@ -1,5 +1,10 @@
 id: 72353
 name: student-progress-tracker-key
+
+# Include these directories in the deployment
+include:
+    - public/data
+
 environments:
     production:
         memory: 1024
@@ -8,4 +13,5 @@ environments:
         build:
             - 'composer install --no-dev'
             - 'php artisan event:cache'
+            - 'php artisan storage:link'
           # - 'npm ci && npm run build && rm -rf node_modules'
