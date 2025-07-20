@@ -1,13 +1,14 @@
 # Student Progress Tracker
 
-A Simple Student Progress Tracker. Utilised JSON data to store the progress of the student (simulating an initial Database call),
+A Simple Student Progress Tracker. 
+Utilises JSON data to store the progress of the student (simulating an HTML payload of the object),
 Stores data for duration of session. 
 
 Utilises Laravel 10, PHP 8.3, Bootstrap 5 and jQuery. 
-
-SEE ME LIVE: 
-
 Please let me know if there's any issues with the launch. 
+
+#### SEE THIS PROJECT LIVE: 
+
 
 ## Objectives/Features
 
@@ -29,10 +30,8 @@ A simple Student Progress Tracker application that:
 1. Clone the repository
 2. Run `composer install`
 3. Run `npm install` (or your package manager of choice. I use pnpm)
-4. Run `npm run dev`
-5. Run `php artisan serve` and then `npm run dev`. 
-* Please note, I couldn't get the php artisan serve barebones version working, as it clashed with Laravel Herd. 
-* So if the code doesn't work consider launching it through that.
+4. Run `php artisan serve` to launch the server (It should be on http://localhost:8000/ but it double check the console.)
+    * Note: I ran this via Laravel Herd.
 
 
 ## License

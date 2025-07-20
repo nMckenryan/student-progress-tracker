@@ -1,10 +1,13 @@
 id: 72353
-name: student-progress-tracker-key
+name: student-progress-tracker
+
+# Default environment name
+environment: production
 
 # Include these directories in the deployment
 include:
     - public/data
-
+    - public/build
 environments:
     production:
         memory: 1024
